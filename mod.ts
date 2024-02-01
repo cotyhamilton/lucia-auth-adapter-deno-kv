@@ -36,27 +36,16 @@ export class DenoKVAdapter implements Adapter {
   public async setSession(session: DatabaseSession): Promise<void> {
     const primaryKey = ["sessions", session.id];
     const byUserKey = ["sessions_by_user", session.userId, session.id];
-    const byExpiryKey = [
-      "sessions_by_expiry",
-      session.expiresAt.getTime(),
-      session.id,
-    ];
     const expireIn = session.expiresAt.getTime() - Date.now();
     await this.kv.atomic()
       .check({ key: primaryKey, versionstamp: null })
       .check({ key: byUserKey, versionstamp: null })
-      .check({ key: byExpiryKey, versionstamp: null })
       .set(primaryKey, { ...session, expiresAt: session.expiresAt.getTime() }, {
         expireIn,
       })
       .set(byUserKey, { ...session, expiresAt: session.expiresAt.getTime() }, {
         expireIn,
       })
-      .set(
-        byExpiryKey,
-        { ...session, expiresAt: session.expiresAt.getTime() },
-        { expireIn },
-      )
       .commit();
   }
 
