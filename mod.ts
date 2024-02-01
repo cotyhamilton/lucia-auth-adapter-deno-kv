@@ -73,10 +73,6 @@ export class DenoKVAdapter implements Adapter {
         .set(["sessions_by_user", session.userId, sessionId], session, {
           expireIn,
         })
-        .delete(["sessions_by_expiry", res.value.expiresAt, sessionId])
-        .set(["sessions_by_expiry", session.expiresAt, sessionId], session, {
-          expireIn,
-        })
         .commit();
     }
   }
@@ -87,7 +83,6 @@ export class DenoKVAdapter implements Adapter {
       await this.kv.atomic()
         .delete(["sessions", sessionId])
         .delete(["sessions_by_user", res.value.userId, sessionId])
-        .delete(["sessions_by_expiry", res.value.expiresAt, sessionId])
         .commit();
     }
   }
@@ -100,7 +95,6 @@ export class DenoKVAdapter implements Adapter {
       await this.kv.atomic()
         .delete(["sessions", res.value.id])
         .delete(["sessions_by_user", res.value.userId, res.value.id])
-        .delete(["sessions_by_expiry", res.value.expiresAt, res.value.id])
         .commit();
     }
   }
