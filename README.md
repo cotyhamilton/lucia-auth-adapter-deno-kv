@@ -5,8 +5,8 @@ compatible with `npm:lucia@3`
 ## usage
 
 ```ts
-import { Lucia } from "npm:lucia";
-import { DenoKVAdapter } from "https://raw.githubusercontent.com/cotyhamilton/lucia-auth-adapter-deno-kv/main/mod.ts";
+import { Lucia } from "npm:lucia@3";
+import { DenoKVAdapter } from "jsr:@cotyhamilton/lucia-adapter-denokv@1";
 
 const kv = await Deno.openKv();
 
