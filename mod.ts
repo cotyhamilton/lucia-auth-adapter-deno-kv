@@ -1,4 +1,4 @@
-import type { Adapter, DatabaseSession, DatabaseUser } from "npm:lucia";
+import type { Adapter, DatabaseSession, DatabaseUser } from "npm:lucia@3";
 
 type Session = { id: string; userId: string; expiresAt: number };
 type User = { id: string };
