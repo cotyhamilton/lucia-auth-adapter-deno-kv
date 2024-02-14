@@ -1,3 +1,5 @@
 {
-  "exclude": ["*.md"]
+  "name": "@cotyhamilton/lucia-adapter-denokv",
+  "version": "1.0.0-next.0",
+  "exports": "./mod.ts"
 }
