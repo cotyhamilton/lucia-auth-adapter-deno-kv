@@ -6,7 +6,7 @@ compatible with `npm:lucia@3`
 
 ```ts
 import { Lucia } from "npm:lucia@3";
-import { DenoKVAdapter } from "jsr:@cotyhamilton/lucia-adapter-denokv@1";
+import { DenoKVAdapter } from "jsr:@cotyhamilton/lucia-adapter-denokv@0";
 
 const kv = await Deno.openKv();
 
