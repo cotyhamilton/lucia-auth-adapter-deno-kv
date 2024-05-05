@@ -5,7 +5,7 @@ type User = { id: string };
 
 /**
  * ```ts
- * import { Lucia } from "npm:lucia@3";
+ * import { Lucia } from "lucia";
  * import { DenoKVAdapter } from "@cotyhamilton/lucia-adapter-denokv";
  *
  * const kv = await Deno.openKv();
@@ -19,7 +19,7 @@ type User = { id: string };
  *   },
  * });
  *
- * declare module "npm:lucia" {
+ * declare module "lucia" {
  *   interface Register {
  *     Lucia: typeof lucia;
  *     DatabaseUserAttributes: DatabaseUserAttributes;

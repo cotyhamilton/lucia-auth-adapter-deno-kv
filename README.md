@@ -8,10 +8,11 @@ example implementation: https://github.com/cotyhamilton/deno-auth-lucia
 
 ```sh
 deno add @cotyhamilton/lucia-adapter-denokv
+deno add npm:lucia@3
 ```
 
 ```ts
-import { Lucia } from "npm:lucia@3";
+import { Lucia } from "lucia";
 import { DenoKVAdapter } from "@cotyhamilton/lucia-adapter-denokv";
 
 const kv = await Deno.openKv();
@@ -25,7 +26,7 @@ export const lucia = new Lucia(new DenoKVAdapter(kv), {
   },
 });
 
-declare module "npm:lucia" {
+declare module "lucia" {
   interface Register {
     Lucia: typeof lucia;
     DatabaseUserAttributes: DatabaseUserAttributes;
