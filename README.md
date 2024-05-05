@@ -2,6 +2,8 @@
 
 compatible with `npm:lucia@3`
 
+example implementation: https://github.com/cotyhamilton/deno-auth-lucia
+
 ## usage
 
 ```sh
