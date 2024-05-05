@@ -3,6 +3,36 @@ import type { Adapter, DatabaseSession, DatabaseUser } from "npm:lucia@3";
 type Session = { id: string; userId: string; expiresAt: number };
 type User = { id: string };
 
+/**
+ * ```ts
+ * import { Lucia } from "npm:lucia@3";
+ * import { DenoKVAdapter } from "@cotyhamilton/lucia-adapter-denokv";
+ *
+ * const kv = await Deno.openKv();
+ *
+ * export const lucia = new Lucia(new DenoKVAdapter(kv), {
+ *   getUserAttributes: (attributes) => {
+ *     return {
+ *       // attributes has the type of DatabaseUserAttributes
+ *       name: attributes.name,
+ *     }
+ *   },
+ * });
+ *
+ * declare module "npm:lucia" {
+ *   interface Register {
+ *     Lucia: typeof lucia;
+ *     DatabaseUserAttributes: DatabaseUserAttributes;
+ *   }
+ * }
+ *
+ * interface DatabaseUserAttributes {
+ *   name: string;
+ * }
+ * ```
+ *
+ * @extends Adapter
+ */
 export class DenoKVAdapter implements Adapter {
   private kv: Deno.Kv;
 

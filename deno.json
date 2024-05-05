@@ -1,8 +1,8 @@
 {
   "name": "@cotyhamilton/lucia-adapter-denokv",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "exports": "./mod.ts",
-  "exclude": [".github", ".vscode", "coverage", "docs"],
+  "exclude": [".github", ".vscode", "coverage", "docs", "deno.lock"],
   "tasks": {
     "version": "deno run --allow-read=deno.json --allow-write=deno.json https://jsr.io/@cotyhamilton/deno-tools/0.1.2/bump.ts --out newVersion"
   }

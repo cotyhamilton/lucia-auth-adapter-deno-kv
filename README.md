@@ -4,9 +4,13 @@ compatible with `npm:lucia@3`
 
 ## usage
 
+```sh
+deno add @cotyhamilton/lucia-adapter-denokv
+```
+
 ```ts
 import { Lucia } from "npm:lucia@3";
-import { DenoKVAdapter } from "jsr:@cotyhamilton/lucia-adapter-denokv@0";
+import { DenoKVAdapter } from "@cotyhamilton/lucia-adapter-denokv";
 
 const kv = await Deno.openKv();
 
