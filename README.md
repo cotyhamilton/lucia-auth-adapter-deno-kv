@@ -1,5 +1,7 @@
 # lucia auth adapter deno kv
 
+[![JSR](https://jsr.io/badges/@cotyhamilton/lucia-adapter-denokv)](https://jsr.io/@cotyhamilton/lucia-adapter-denokv)
+
 compatible with `npm:lucia@3`
 
 example implementation: https://github.com/cotyhamilton/deno-auth-lucia
