@@ -1,7 +1,10 @@
-import type { Adapter, DatabaseSession, DatabaseUser } from "npm:lucia@3";
-
-type Session = { id: string; userId: string; expiresAt: number };
-type User = { id: string };
+import type {
+  Adapter,
+  DatabaseSession,
+  DatabaseUser,
+  Session,
+  User,
+} from "npm:lucia@3";
 
 /**
  * @example
