@@ -4,6 +4,7 @@ type Session = { id: string; userId: string; expiresAt: number };
 type User = { id: string };
 
 /**
+ * @example
  * ```ts
  * import { Lucia } from "lucia";
  * import { DenoKVAdapter } from "@cotyhamilton/lucia-adapter-denokv";
