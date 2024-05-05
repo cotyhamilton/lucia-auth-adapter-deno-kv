@@ -68,13 +68,22 @@ export class DenoKVAdapter implements Adapter {
     const primaryKey = ["sessions", session.id];
     const byUserKey = ["sessions_by_user", session.userId, session.id];
     const expireIn = session.expiresAt.getTime() - Date.now();
+    const { attributes, ...sessionData } = session;
     await this.kv.atomic()
       .check({ key: primaryKey, versionstamp: null })
       .check({ key: byUserKey, versionstamp: null })
-      .set(primaryKey, { ...session, expiresAt: session.expiresAt.getTime() }, {
+      .set(primaryKey, {
+        ...sessionData,
+        ...attributes,
+        expiresAt: session.expiresAt.getTime(),
+      }, {
         expireIn,
       })
-      .set(byUserKey, { ...session, expiresAt: session.expiresAt.getTime() }, {
+      .set(byUserKey, {
+        ...sessionData,
+        ...attributes,
+        expiresAt: session.expiresAt.getTime(),
+      }, {
         expireIn,
       })
       .commit();
