@@ -5,6 +5,6 @@
   "lock": false,
   "exclude": [".github", ".vscode"],
   "tasks": {
-    "version": "deno run --allow-read=deno.json --allow-write=deno.json https://jsr.io/@cotyhamilton/deno-tools/0.1.2/bump.ts --out newVersion"
+    "version": "deno run --allow-read=deno.json --allow-write=deno.json jsr:@cotyhamilton/deno-tools/bump --out newVersion"
   }
 }
